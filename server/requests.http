@@ -1,0 +1,55 @@
+### 1. Root Check
+GET http://localhost:3000/
+
+### 2. Get All Products
+GET http://localhost:3000/products
+
+### 3. Filter Products by Search Query (name)
+GET http://localhost:3000/products?search=mouse
+
+### 4. Sort Products by Price (Ascending)
+GET http://localhost:3000/products?sortBy=price_asc
+
+### 5. Sort Products by Price (Descending)
+GET http://localhost:3000/products?sortBy=price_desc
+
+### 6. Get Single Product by ID (Success)
+GET http://localhost:3000/products/1
+
+### 7. Get Single Product by ID (Not Found - 404)
+GET http://localhost:3000/products/99999
+
+### 8. Add New Product (Success - 201)
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Gaming Headset",
+  "price": 59.99,
+  "quantity": 2
+}
+
+### 9. Add New Product (Validation Error - 400)
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -10
+}
+
+### 10. Update Product by ID (Success - 200)
+PUT http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "name": "Wireless Ergonomic Mouse",
+  "price": 29.99,
+  "quantity": 4
+}
+
+### 11. Delete Product by ID (Success - 200)
+DELETE http://localhost:3000/products/2
+
+### 12. Delete Product by Non-existent ID (404)
+DELETE http://localhost:3000/products/99999
